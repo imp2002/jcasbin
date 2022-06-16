@@ -116,7 +116,7 @@ public class CoreEnforcer {
     public static Model newModel(String modelPath, String unused) {
         Model m = new Model();
 
-        if (!modelPath.equals("")) {
+        if (!"".equals(modelPath)) {
             m.loadModel(modelPath);
         }
 
@@ -232,7 +232,6 @@ public class CoreEnforcer {
     public void loadPolicy() {
         model.clearPolicy();
         adapter.loadPolicy(model);
-        model.sortPoliciesByPriority();
 
         clearRmMap();
         model.printPolicy();
@@ -259,7 +258,6 @@ public class CoreEnforcer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        model.sortPoliciesByPriority();
 
         initRmMap();
         model.printPolicy();
